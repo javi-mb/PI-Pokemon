@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'Pokemon Solid Normal';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Pokemon Solid Normal'), url('Pokemon Solid.woff') format('woff');
+}
+@font-face {
+  font-family: 'Pokemon Hollow Normal';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Pokemon Hollow Normal'), url('Pokemon Hollow.woff') format('woff');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Mitr&family=Paytone+One&display=swap');
+
+
+.title{
+  font-family: 'Pokemon Solid Normal';
+  color: rgb(231, 68, 68);
+  font-size: 2.8rem;
+  position: relative;
+  top: -40px;
+}
+.containter{
+    background-color: #ebec92;
+    height: 70px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    position:static;
+
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    margin-right: 20px;
+}
+
+.btn{
+  background: transparent;
+  border: none;
+  font-family: 'Pokemon Solid Normal';
+  color: rgb(231, 68, 68);
+  font-size: 2.8rem;
+  position: relative;
+  
+}
+
+.createBtn {
+  margin-top: 10px;
+    padding: 1em 2.8em;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: rgb(138, 38, 38);
+    background-color: #f3f2cd;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Mitr', sans-serif;
+
+  }
+  
+  .createBtn:hover {
+    background-color: rgb(231, 68, 68);
+    box-shadow: 0px 15px 20px rgba(231, 68, 68, 0.5);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  
+  .createBtn:active {
+    transform: translateY(1px);
+  }

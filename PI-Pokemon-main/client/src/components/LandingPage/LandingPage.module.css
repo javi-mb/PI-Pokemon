@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Pokemon Solid Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Pokemon Solid Normal'), url('Pokemon Solid.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Pokemon Hollow Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Pokemon Hollow Normal'), url('Pokemon Hollow.woff') format('woff');
+}
+
+.container {
+    background-image: url('../../img/landing-page.png');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.title {
+    font-family: 'Pokemon Hollow Normal';
+    font-size: 40px;
+    position: absolute;
+    top: 80px;
+    left: 80px;
+}
+
+.poke {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    font-size: 115px;
+    font-family: 'Pokemon Solid Normal';
+}
+
+.button {
+    position: absolute;
+    top: 400px;
+    left: 250px;
+}
+
+.iniciar {
+    position: relative;
+    background-color: #fff;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 5px 30px;
+    transition: 0.5s;
+}
+
+.iniciar:hover {
+    background-color: #f01924;
+    color: #f01924;
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px #f01924;
+    cursor: pointer;
+    margin-left: -5px;
+
+}
+
+.iniciar::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: #cdcf2f;
+}
+
+.iniciar span {
+    position: relative;
+    z-index: 1;
+    font-family: 'Pokemon Solid Normal';
+
+}
