@@ -16,6 +16,7 @@ function App() {
           <Route exact path="/create" component={PokemonCreate} />
           <Route exact path="/pokemon/:id" component={Detail} />
           <Route exact path="/404" component={Error} />
+          <Route path="/*" component={Error} />
         </Switch>
       </div>
     </BrowserRouter>

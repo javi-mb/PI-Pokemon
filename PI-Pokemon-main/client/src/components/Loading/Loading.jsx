@@ -1,6 +1,5 @@
 import React from "react";
 import "./Loading.css";
-import ash from "../../img/ash.gif";
 
 const Loading = () => {
   return (

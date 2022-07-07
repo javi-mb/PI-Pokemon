@@ -11,11 +11,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.pokemons);
 
-  //--------------------- PAGINADO ------------------------------
-
-  const [currentPage, setCurrentPage] = useState(0);
-
-  //------------------------------ FIN DE PAGINADO ------------------------------
+  const [, /*refreshState*/ setRefreshState] = useState(false);
 
   useEffect(() => {
     dispatch(getPokemons());
@@ -36,14 +32,10 @@ export default function Home() {
           <Nav handleClick={handleClick} />
           <div>
             <div>
-              <Filters setCurrentPage={setCurrentPage} />
+              <Filters setRefreshState={setRefreshState} />
             </div>
             <div>
-              <Cards
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                allPokemons={allPokemons}
-              />
+              <Cards allPokemons={allPokemons} />
             </div>
           </div>
         </div>

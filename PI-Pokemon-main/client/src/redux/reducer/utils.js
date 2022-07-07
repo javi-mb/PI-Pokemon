@@ -1,7 +1,5 @@
 export const filterPokemons = (filterBy, array) => {
   switch (filterBy) {
-    case "All":
-      return array;
     case "FromApi":
       return array.filter((poke) => typeof poke.id === "number");
     case "FromDb":

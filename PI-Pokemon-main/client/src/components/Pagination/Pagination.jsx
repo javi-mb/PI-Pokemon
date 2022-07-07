@@ -1,9 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { setCurrentPage } from "../../redux/actions";
 import style from "./Pagination.module.css";
 
-const Pagination = ({ allPokemons, setCurrentPage }) => {
+const Pagination = ({ allPokemons }) => {
+  const dispatch = useDispatch();
   const handleClick = (e) => {
-    setCurrentPage(e.target.innerHTML - 1);
+    dispatch(setCurrentPage(e.target.innerHTML - 1));
   };
 
   return (

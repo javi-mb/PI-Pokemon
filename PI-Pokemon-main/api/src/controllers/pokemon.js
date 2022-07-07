@@ -1,39 +1,41 @@
-const { getAllPokemon } = require("./utils");
+const {
+  getAllPokemon,
+  getPokeIdApi,
+  getDbInfo,
+  getPokeId,
+  getPokeName,
+} = require("./utils");
 const { Pokemon, Type } = require("../db");
 
 const getAll = async (req, res) => {
   const { name } = req.query;
-  const pokeTotal = await getAllPokemon();
-
-  //res.send(pokeTotal);
   try {
     if (name) {
-      const pokeName = pokeTotal.filter((p) =>
-        p.name.toLowerCase().includes(name.toLowerCase())
-      );
-      pokeName.length
-        ? res.status(200).send(pokeName)
-        : res.status(404).send("no llego nada pa");
+      const pokeInfo = await getPokeName(name);
+      pokeInfo.length
+        ? res.status(200).send(pokeInfo)
+        : res.status(404).send("error");
     } else {
-      res.status(200).send(pokeTotal);
+      const pokeTotal = await getAllPokemon();
+      pokeTotal.length
+        ? res.status(200).send(pokeTotal)
+        : res.status(404).send("error");
     }
   } catch (error) {
-    res.status(404).send("error");
+    res.status(404).send(error);
   }
 };
 
 const getDetailPoke = async (req, res) => {
   const { id } = req.params;
-  const allPokesId = await getAllPokemon();
+
+  const pokeDetail = await getPokeId(id);
   try {
-    if (id) {
-      let pokemonById = allPokesId.filter((e) => e.id == id);
-      pokemonById.length
-        ? res.status(200).send(pokemonById)
-        : res.status(404).send("Pokemon not found");
-    }
-  } catch (e) {
-    console.log(e);
+    pokeDetail.length > 0
+      ? res.status(200).send(pokeDetail)
+      : res.status(404).send("not found");
+  } catch (error) {
+    res.status(400).send(error);
   }
 };
 

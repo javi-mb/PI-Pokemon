@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPokemonByName, cleanPokemons } from "../../redux/actions";
+import { getPokemonByName, setCurrentPage } from "../../redux/actions";
 import style from "./SearchBar.module.css";
 import lupa from "../../img/lupa.ico";
 
@@ -12,18 +12,16 @@ const SearchBar = () => {
   const handleInputChange = (e) => {
     e.preventDefault();
     setName(e.target.value);
-    //console.log(name);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(cleanPokemons(dispatch));
     if (name !== "") {
       dispatch(getPokemonByName(name));
+      dispatch(setCurrentPage(0));
     } else {
-      return alert("hola");
+      alert("Write a pokemon");
     }
-    // setName("");
   };
 
   return (

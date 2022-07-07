@@ -1,11 +1,12 @@
 import {
   GET_POKEMONS,
   GET_ALL_TYPES,
+  SET_CURRENT_PAGE,
   FILTER_CREATED,
-  SORT_POKEMONS,
   GET_POKEMON_NAME,
   GET_DETAILS,
   CLEAN_POKEMONS,
+  SORT_POKEMONS,
 } from "../actions/actionsTypes";
 
 import { filterPokemons, sortPokemons } from "./utils";
@@ -13,6 +14,7 @@ import { filterPokemons, sortPokemons } from "./utils";
 const initialState = {
   pokemons: [],
   allPokemons: [],
+  currentPage: 0,
   types: [],
   pokeDetail: [],
 };
@@ -29,9 +31,19 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_POKEMON_NAME:
+      let filterName = action.payload;
+      if (filterName <= 0) {
+        window.location.href = "http://localhost:3000/404";
+      }
       return {
         ...state,
-        pokemons: action.payload,
+        pokemons: filterName,
+      };
+
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.payload,
       };
 
     case GET_DETAILS:
@@ -55,8 +67,6 @@ const rootReducer = (state = initialState, action) => {
 
     //------------------------------
     //------------- FILTROS--------------
-
-    //-------origin-> api or db
 
     case FILTER_CREATED:
       let copy = state.allPokemons;

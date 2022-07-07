@@ -6,11 +6,9 @@ const validate = (input) => {
   let errors = {};
   if (!validateName.test(input.name) || input.name.length < 3) {
     errors.name = "Name required.";
-  }
-  if (!validateNum.test(input.hp) || parseInt(input.hp) < 1) {
+  } else if (!validateNum.test(input.hp) || parseInt(input.hp) < 1) {
     errors.hp = "Number required. Higher than one";
-  }
-  if (!validateUrl.test(input.img)) {
+  } else if (!validateUrl.test(input.img)) {
     errors.img = "URL required";
   }
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import style from "./Card.module.css";
 import logoImg from "../Filters/types";
 

@@ -15,7 +15,6 @@ const PokemonCreate = () => {
     dispatch(getAlltypes());
   }, [dispatch]);
 
-  const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
@@ -40,35 +39,29 @@ const PokemonCreate = () => {
         [e.target.name]: e.target.value,
       })
     );
-    setValues(
-      valuesSubmit({
-        ...input,
-        [e.target.name]: e.target.value,
-      })
-    );
   };
 
   const handleSelect = (e) => {
-    if (input.types.length < 2) {
-      setInput({
-        ...input,
-        types: [...input.types, e.target.value],
-      });
-      setValues({
-        ...values,
-        types: [...values.types, e.target.value],
-      });
-      e.target.value = "Select type";
+    if (input.types.includes(e.target.value)) {
+      alert("ya esta en la lista");
     } else {
-      alert("Two types of pokemon at most");
-      e.target.value = "Select type";
+      if (input.types.length < 2) {
+        setInput({
+          ...input,
+          types: [...input.types, e.target.value],
+        });
+        e.target.value = "Select type";
+      } else {
+        alert("Two types of pokemon at most");
+        e.target.value = "Select type";
+      }
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!errors.name && !errors.hp && input.types.length > 0) {
-      dispatch(postPokemon(values));
+    if (!errors.name && !errors.hp && !errors.img && input.types.length > 0) {
+      dispatch(postPokemon(valuesSubmit(input)));
       setInput({
         name: "",
         hp: "",
@@ -96,10 +89,11 @@ const PokemonCreate = () => {
       ...input,
       types: input.types.filter((type) => type !== e),
     });
-    setValues({
-      ...values,
-      types: values.types.filter((type) => type !== e),
-    });
+  };
+
+  const handleError = (e) => {
+    e.preventDefault();
+    alert("Complete the form");
   };
 
   return (
@@ -263,7 +257,7 @@ const PokemonCreate = () => {
                 Create!
               </button>
             ) : (
-              <button disabled className={style.btn}>
+              <button onClick={handleError} className={style.btn}>
                 Create!
               </button>
             )}

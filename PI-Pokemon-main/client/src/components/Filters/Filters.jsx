@@ -1,27 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
-import { filterCreated, sortPokemons } from "../../redux/actions";
+import {
+  filterCreated,
+  sortPokemons,
+  setCurrentPage,
+} from "../../redux/actions";
 import FilterTypes from "./FilterTypes";
 import style from "./Filter.module.css";
 
-const Filters = ({ setCurrentPage }) => {
+const Filters = ({ setRefreshState }) => {
   const dispatch = useDispatch();
 
   const handlerFilterOrigin = (e) => {
     dispatch(filterCreated(e.target.value));
-    setCurrentPage(0);
+    dispatch(setCurrentPage(0));
+    setRefreshState((prevState) => !prevState);
   };
 
   const handlerSort = (e) => {
     e.preventDefault();
     dispatch(sortPokemons(e.target.value));
-    setCurrentPage(0);
+    dispatch(setCurrentPage(0));
+    setRefreshState((prevState) => !prevState);
   };
 
   return (
     <div>
       <div>
-        <FilterTypes setCurrentPage={setCurrentPage} />
+        <FilterTypes
+          setCurrentPage={setCurrentPage}
+          setRefreshState={setRefreshState}
+        />
       </div>
       <div className={style.container}>
         <div>
