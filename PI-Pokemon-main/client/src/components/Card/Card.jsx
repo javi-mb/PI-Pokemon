@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 import logoImg from "../Filters/types";
 
-export default function Card({ name, image, types, id, attack }) {
+export default function Card({ name, image, types, id }) {
   return (
     <div className={style.container}>
       <Link style={{ textDecoration: "none" }} to={`/pokemon/${id}`}>

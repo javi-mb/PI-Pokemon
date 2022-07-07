@@ -21,7 +21,6 @@ const Cards = ({ allPokemons }) => {
                   name={e.name}
                   image={e.img}
                   types={e.types}
-                  attack={e.attack}
                 />
               </div>
             );

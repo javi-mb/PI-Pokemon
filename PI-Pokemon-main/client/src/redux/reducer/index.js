@@ -21,8 +21,6 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    //--------- TRAER DATOS --------------
-
     case GET_POKEMONS:
       return {
         ...state,
@@ -31,13 +29,9 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_POKEMON_NAME:
-      let filterName = action.payload;
-      if (filterName <= 0) {
-        window.location.href = "http://localhost:3000/404";
-      }
       return {
         ...state,
-        pokemons: filterName,
+        pokemons: action.payload,
       };
 
     case SET_CURRENT_PAGE:
@@ -65,31 +59,17 @@ const rootReducer = (state = initialState, action) => {
         pokeDetail: action.payload,
       };
 
-    //------------------------------
-    //------------- FILTROS--------------
-
     case FILTER_CREATED:
-      let copy = state.allPokemons;
-      let createdFiltered =
-        action.payload === "All" ? copy : filterPokemons(action.payload, copy);
-      if (createdFiltered.length <= 0) {
-        window.location.href = "http://localhost:3000/404";
-      }
-
       return {
         ...state,
-        pokemons: createdFiltered,
+        pokemons: filterPokemons(action.payload, state.allPokemons),
       };
-
-    //------- ORDENAMIENTOS-----------
 
     case SORT_POKEMONS:
       return {
         ...state,
         pokemons: sortPokemons(action.payload, state.pokemons),
       };
-
-    //-----------CREAR POKEMON----------
 
     default:
       return { ...state };

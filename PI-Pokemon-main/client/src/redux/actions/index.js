@@ -68,7 +68,6 @@ export function getDetail(id) {
         payload: info.data,
       });
     } catch (e) {
-      window.location.href = "http://localhost:3000/404";
       console.log(e);
     }
   };
@@ -81,7 +80,6 @@ export const postPokemon = (payload) => {
         "http://localhost:3001/pokemons",
         payload
       );
-      console.log(createPoke);
       alert("New pokemón is created!");
       return createPoke;
     } catch (e) {

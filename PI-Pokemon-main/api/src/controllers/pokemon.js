@@ -1,10 +1,4 @@
-const {
-  getAllPokemon,
-  getPokeIdApi,
-  getDbInfo,
-  getPokeId,
-  getPokeName,
-} = require("./utils");
+const { getAllPokemon, getPokeId, getPokeName } = require("./utils");
 const { Pokemon, Type } = require("../db");
 
 const getAll = async (req, res) => {

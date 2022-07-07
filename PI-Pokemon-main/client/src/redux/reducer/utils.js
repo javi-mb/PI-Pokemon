@@ -1,13 +1,30 @@
+const error = (array) => {
+  if (array.length <= 0) {
+    window.location.href = "http://localhost:3000/404";
+  }
+};
 export const filterPokemons = (filterBy, array) => {
   switch (filterBy) {
+    case "All":
+      return array;
+
     case "FromApi":
-      return array.filter((poke) => typeof poke.id === "number");
+      array = array.filter((poke) => typeof poke.id === "number");
+      error(array);
+      return array;
+
     case "FromDb":
-      return array.filter((poke) => typeof poke.id === "string");
+      array = array.filter((poke) => typeof poke.id === "string");
+      error(array);
+      return array;
+
     case filterBy:
-      return array.filter((poke) =>
+      array = array.filter((poke) =>
         poke.types.find((t) => t.name === filterBy)
       );
+      error(array);
+      return array;
+
     default:
       return array;
   }

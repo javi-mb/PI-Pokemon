@@ -18,7 +18,7 @@ export default function Home() {
     return () => {
       dispatch(cleanPokemons(dispatch));
     };
-  }, []);
+  }, [dispatch]);
 
   const handleClick = (e) => {
     e.preventDefault();

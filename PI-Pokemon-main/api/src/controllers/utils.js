@@ -50,9 +50,6 @@ const getDbInfo = async () => {
     include: {
       model: Type,
       attributes: ["name"],
-      through: {
-        attributes: [],
-      },
     },
   });
 };
@@ -141,11 +138,7 @@ const getPokeName = async (name) => {
 };
 
 module.exports = {
-  getApiInfo,
-  getDbInfo,
   getAllPokemon,
-  getPokeIdApi,
-  getPokeIdDb,
   getPokeId,
   getPokeName,
 };

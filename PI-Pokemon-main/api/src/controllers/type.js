@@ -10,6 +10,7 @@ const getTypes = async (req, res) => {
       img: `https://typedex.app/images/ui/types/dark/${e.name}.svg`,
     }));
     types = types.filter((t) => t.name !== "shadow" && t.name !== "unknown");
+    console.log(types);
     types.forEach((type) => {
       Type.findOrCreate({
         where: {
