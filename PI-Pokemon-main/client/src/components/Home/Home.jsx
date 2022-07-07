@@ -30,14 +30,10 @@ export default function Home() {
       {allPokemons.length > 0 ? (
         <div>
           <Nav handleClick={handleClick} />
-          <div>
-            <div>
-              <Filters setRefreshState={setRefreshState} />
-            </div>
-            <div>
-              <Cards allPokemons={allPokemons} />
-            </div>
-          </div>
+
+          <Filters setRefreshState={setRefreshState} />
+
+          <Cards allPokemons={allPokemons} />
         </div>
       ) : (
         <Loading />
