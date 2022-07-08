@@ -12,7 +12,7 @@ const Pagination = ({ allPokemons }) => {
   return (
     <nav className={style.container}>
       <ul className={style.pagination}>
-        {[...Array(Math.ceil(allPokemons / 15))].map((e, i) => (
+        {[...Array(Math.ceil(allPokemons / 12))].map((e, i) => (
           <li onClick={handleClick} value={i} className={style.btn} key={i}>
             {i + 1}
           </li>

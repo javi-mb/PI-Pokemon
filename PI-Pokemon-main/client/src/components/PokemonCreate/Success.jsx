@@ -13,8 +13,9 @@ const Success = () => {
           </span>
         </Link>
       </div>
-      <div>
+      <div className={style.containerImgCreated}>
         <img src="https://i.gifer.com/embedded/download/DD0.gif" />
+        <span>pokemon created!</span>
       </div>
     </div>
   );
