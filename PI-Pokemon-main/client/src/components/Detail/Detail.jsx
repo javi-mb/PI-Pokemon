@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import Loading from "../Loading/Loading";
 import style from "./Detail.module.css";
 import logoImg from "../Filters/types";
-import Footer from "../Footer/Footer";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -77,7 +76,6 @@ const Detail = () => {
               </div>
             </div>
           </div>
-          <Footer />
         </div>
       ) : (
         <div>
