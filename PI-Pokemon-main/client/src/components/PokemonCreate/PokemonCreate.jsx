@@ -42,15 +42,19 @@ const PokemonCreate = () => {
   };
 
   const handleSelect = (e) => {
-    if (input.types.length < 2) {
-      setInput({
-        ...input,
-        types: [...input.types, e.target.value],
-      });
-      e.target.value = "Select type";
+    if (input.types.includes(e.target.value)) {
+      alert("ya tiene ese tipo");
     } else {
-      alert("Two types of pokemon at most");
-      e.target.value = "Select type";
+      if (input.types.length < 2) {
+        setInput({
+          ...input,
+          types: [...input.types, e.target.value],
+        });
+        e.target.value = "Select type";
+      } else {
+        alert("Two types of pokemon at most");
+        e.target.value = "Select type";
+      }
     }
   };
 
