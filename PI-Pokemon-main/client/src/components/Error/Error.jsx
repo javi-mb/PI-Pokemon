@@ -2,6 +2,7 @@ import React from "react";
 import error from "../../img/errorThree.gif";
 import style from "./Error.module.css";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const Error = () => {
   return (
@@ -16,6 +17,7 @@ const Error = () => {
       <div className={style.containerImg}>
         <img src={error} alt="" />
       </div>
+      <Footer />
     </div>
   );
 };
