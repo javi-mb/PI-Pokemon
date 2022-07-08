@@ -1,16 +1,17 @@
-.container{
+.container {
     display: flex;
     justify-content: space-around;
 }
-.pagination{
-    width: 300px;
+
+.pagination {
+    width: 500px;
     display: flex;
     list-style: none;
     justify-content: space-around;
 
 }
 
-.btn{
+.btn {
     padding: 12px 17px;
     border-radius: 100%;
     background-color: #e5e764;
@@ -19,9 +20,7 @@
 }
 
 .btn:hover {
-	display: flex;
-	transform: scale(1.2);
+    display: flex;
+    transform: scale(1.2);
     cursor: pointer;
 }
-
-
