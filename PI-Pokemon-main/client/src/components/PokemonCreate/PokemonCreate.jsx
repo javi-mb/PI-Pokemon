@@ -74,7 +74,6 @@ const PokemonCreate = () => {
         img: "",
       });
       dispatch(cleanPokemons(dispatch));
-      history.push("/home");
     } else {
       if (input.types.length <= 0) {
         alert("Faltan types");

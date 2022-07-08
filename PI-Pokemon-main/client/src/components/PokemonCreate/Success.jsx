@@ -1,0 +1,23 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import style from "./PokemonCreate.module.css";
+import exito from "../../img/pokemonCreate.gif";
+
+const Success = () => {
+  return (
+    <div className={style.container}>
+      <div className={style.nav}>
+        <Link to="/home">
+          <span className={style.navTitle}>
+            <button className={style.navBtn}>POKEWEB</button>
+          </span>
+        </Link>
+      </div>
+      <div>
+        <img src="https://i.gifer.com/embedded/download/DD0.gif" />
+      </div>
+    </div>
+  );
+};
+
+export default Success;

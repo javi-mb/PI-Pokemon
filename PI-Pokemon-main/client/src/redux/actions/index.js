@@ -77,10 +77,10 @@ export const postPokemon = (payload) => {
   return async () => {
     try {
       const createPoke = await axios.post("/pokemons", payload);
-      alert("New pokemón is created!");
+      window.location.href = "https://pi-pokemon-sigma.vercel.app/success";
       return createPoke;
     } catch (e) {
-      alert("Pokemon name already exist");
+      window.location.href = "https://pi-pokemon-sigma.vercel.app/404";
       console.log(e);
     }
   };
