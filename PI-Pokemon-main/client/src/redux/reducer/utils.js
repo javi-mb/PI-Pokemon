@@ -1,6 +1,6 @@
 const error = (array) => {
   if (array.length <= 0) {
-    window.location.href = "http://localhost:3000/404";
+    window.location.href = "https://pi-pokemon-sigma.vercel.app/404";
   }
 };
 export const filterPokemons = (filterBy, array) => {

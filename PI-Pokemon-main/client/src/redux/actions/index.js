@@ -21,7 +21,7 @@ export const getPokemons = () => {
         payload: info.data,
       });
     } catch (e) {
-      window.location.href = "http://localhost:3000/404";
+      window.location.href = "https://pi-pokemon-sigma.vercel.app/404";
       console.log(e);
     }
   };
@@ -52,7 +52,7 @@ export const getPokemonByName = (name) => {
         payload: info.data,
       });
     } catch (e) {
-      window.location.href = "http://localhost:3000/404";
+      window.location.href = "https://pi-pokemon-sigma.vercel.app/404";
       console.log(e);
     }
   };
