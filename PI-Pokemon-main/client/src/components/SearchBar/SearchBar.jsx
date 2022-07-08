@@ -18,6 +18,7 @@ const SearchBar = () => {
     e.preventDefault();
     if (name !== "") {
       dispatch(getPokemonByName(name));
+      setName("");
       dispatch(setCurrentPage(0));
     } else {
       alert("Write a pokemon");
